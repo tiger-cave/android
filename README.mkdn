@@ -1,36 +1,32 @@
-LineageOS
-===========
+LineageOS 20.0 legacy compatibility manifest
+============================================
+
+This manifest follows LineageOS 20.0 and replaces only the shared repositories
+needed by the legacy-device compatibility stack. Device-specific Xiaomi trees
+are maintained separately and are not redirected to tiger-cave here.
 
 Getting started
 ---------------
 
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+Initialize the source tree with this manifest:
 
-To initialize your local repository using the LineageOS trees, use a command like this:
 ```
-repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+repo init -u https://github.com/tiger-cave/android.git -b lineage-20.0 --git-lfs
 ```
-Then to sync up:
+
+Then sync all projects:
+
 ```
 repo sync
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
 
+Branch policy
+-------------
 
-Submitting patches
-------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
+`lineage-20.0` is the active, minimized compatibility branch. In repositories
+cleaned on 2026-08-09, `lineage-20.0-bak` preserves the previous compatibility
+history before unused patches were removed. The manifest always tracks the
+active branch; backup branches are recovery points and are not synced.
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
-
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
-
-
-Buildbot
---------
-
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
-
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
-
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+The msm8960 CAF audio, display, and media projects use the dedicated
+`lineage-20.0-caf-msm8960` branch.
